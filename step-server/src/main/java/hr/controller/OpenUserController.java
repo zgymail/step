@@ -34,9 +34,6 @@ import io.swagger.annotations.ApiResponses;
 
 public class OpenUserController {
 	 private static final Logger logger = LoggerFactory.getLogger(OpenUserController.class.getName());
-
-	 
-	 
     @Autowired
     private UserService userService;
 
