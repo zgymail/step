@@ -78,6 +78,7 @@ public class WebAppConfigurer extends WebMvcConfigurerAdapter{
 		if(!registry.hasMappingForPattern("/static/**")){
 			registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
 		}
+
 		
 		super.addResourceHandlers(registry);
 	}
