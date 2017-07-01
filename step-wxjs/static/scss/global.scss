@@ -1,0 +1,37 @@
+* {
+  // 清空内边距
+  padding: 0;
+  // 清空外边距
+  margin: 0;
+}
+
+body {
+  // 默认字体大小
+  font-size: .6rem;
+  // 隐藏横向滚动条
+  overflow-x: hidden;
+}
+
+a {
+  // 隐藏下划线
+  text-decoration: none;
+}
+
+.app {
+  // 设置过渡
+  transition: all .8s cubic-bezier(.55,0,.1,1);
+}
+
+// 进入时的状态，从右开始
+.outLeftInRight-enter,
+.fadeInLeft-enter,
+.fadeInLeft-leave {
+  transform: translateX(100%);
+}
+
+// 离开时的状态，向左移动
+.outLeftInRight-leave,
+.fadeOutLeft-enter,
+.fadeOutLeft-leave {
+  transform: translateX(-100%);
+}

@@ -1,0 +1,127 @@
+<template>
+  <div id="app">
+    <div class="header flex center">
+      <p>为“健康”而挑战</p>
+      <div class="header__content">
+        <p>当前<b class="header__content--color">{{ number }}</b>人参与</p>
+      </div>
+    </div>
+
+    <div class="theme">
+      <img :src="theme" />
+    </div>
+
+    <div class="public">
+
+      <p>赌你做不到不妨来挑战</p>
+
+      <div class="public__item flex center">
+        <div class="public__wrap">
+          <p class="public__title">自律派早起</p>
+          <p class="public__content">15068人已坚持360天以上</p>
+        </div>
+      </div>
+
+      <div class="public__item flex center">
+        <div class="public__wrap">
+          <p class="public__title">动起来更健康</p>
+          <p class="public__content">1555人已坚持120天以上</p>
+        </div>
+      </div>
+
+      <div class="public__item flex center">
+        <div class="public__wrap">
+          <p class="public__title">轻松享瘦挑战</p>
+          <p class="public__content">150人已减重10公斤</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="private">
+
+      <p></p>
+
+      <div class="private__wrap">
+        <img class="private__img" src="../../static/img/health.jpg" alt="">
+        <div class="private__content flex center">
+          <div>
+            <p class="public__title">自律派早起挑战</p>
+            <p class="public__content">15068人已坚持360天以上</p>
+            <p class="public__content">当前30243人参与100230元奖励</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="private__wrap">
+        <img class="private__img" src="../../static/img/health.jpg" alt="">
+        <div class="private__content flex center">
+          <div>
+            <p class="public__title">动起来更健康</p>
+            <p class="public__content">1555人已坚持120天以上</p>
+            <p class="public__content">当前30586人参与1002300元奖励</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="private__wrap">
+        <img class="private__img" src="../../static/img/health.jpg" alt="">
+        <div class="private__content flex center">
+          <div>
+            <p class="public__title">轻松减挑战</p>
+            <p class="public__content">150人已减重10公斤</p>
+            <p class="public__content">当前3058人参与10023元奖励</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="button">
+      <x-button type="primary" link="/demo">发起挑战 和亲友们来比拼</x-button>
+    </div>
+  </div>
+
+</template>
+
+<script>
+import { XButton } from 'vux'
+
+export default {
+  components: {
+    XButton
+  },
+  data () {
+    return {
+      number: 1000,
+      theme: '../../static/img/health.jpg'
+    }
+  },
+  created () {
+    setTimeout(() => {
+      document.body.scrollTop = 0
+    }, 200)
+
+    this.fetchData()
+  },
+  methods: {
+    // 获取挑战列表页数据
+    fetchData () {
+      this.$http.get('/static/js/category.json').then((e) => {
+        // console.info(this.$store.state.vux.isLoading)
+        this.$store.state.pageState.isLoading = false
+      }, (e) => {
+        console.info(e)
+      })
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss">
+/* index.vue */
+@import "static/scss/index.scss";
+@import "static/scss/global.scss";
+@import "static/scss/flexbox.scss";
+</style>
