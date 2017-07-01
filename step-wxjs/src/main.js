@@ -4,6 +4,7 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import { sync } from 'vuex-router-sync'
+import axios from './api/axios-config'
 import App from './App'
 import index from './components/index'
 import challenge from './components/challenge'
@@ -17,6 +18,7 @@ import store from './vuex'
 // Vue.use(Vuex)
 
 Vue.use(VueRouter)
+Vue.use(axios)
 import { DatetimePlugin, AjaxPlugin, LoadingPlugin } from 'vux'
 
 Vue.use(DatetimePlugin)

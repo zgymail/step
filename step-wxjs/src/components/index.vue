@@ -43,7 +43,7 @@
       <p></p>
 
       <div class="private__wrap">
-        <img class="private__img" src="../../static/img/health.jpg" alt="">
+        <img class="private__img" src="/rs/img/health.jpg" alt="">
         <div class="private__content flex center">
           <div>
             <p class="public__title">自律派早起挑战</p>
@@ -54,7 +54,7 @@
       </div>
 
       <div class="private__wrap">
-        <img class="private__img" src="../../static/img/health.jpg" alt="">
+        <img class="private__img" src="/rs/img/health.jpg" alt="">
         <div class="private__content flex center">
           <div>
             <p class="public__title">动起来更健康</p>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="private__wrap">
-        <img class="private__img" src="../../static/img/health.jpg" alt="">
+        <img class="private__img" src="/rs/img/health.jpg" alt="">
         <div class="private__content flex center">
           <div>
             <p class="public__title">轻松减挑战</p>
@@ -94,7 +94,7 @@ export default {
   data () {
     return {
       number: 1000,
-      theme: '../../static/img/health.jpg'
+      theme: '/rs/img/health.jpg'
     }
   },
   created () {
@@ -102,17 +102,24 @@ export default {
       document.body.scrollTop = 0
     }, 200)
 
-    this.fetchData()
+    this.$store.state.pageState.isLoading = false
+
+    this.loadData()
+    // this.fetchData()
   },
   methods: {
     // 获取挑战列表页数据
     fetchData () {
-      this.$http.get('/static/js/category.json').then((e) => {
-        // console.info(this.$store.state.vux.isLoading)
-        this.$store.state.pageState.isLoading = false
-      }, (e) => {
-        console.info(e)
-      })
+      // this.$http.get('step/rs/js/category.json').then((e) => {
+      //   // console.info(this.$store.state.vux.isLoading)
+      //   this.$store.state.pageState.isLoading = false
+      // }, (e) => {
+      //   console.info(e)
+      // })
+    },
+    loadData: function () {
+      console.info('this', this.$axios)
+      this.$axios.get('wx/activity/index')
     }
   }
 }
@@ -121,7 +128,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 /* index.vue */
-@import "static/scss/index.scss";
-@import "static/scss/global.scss";
-@import "static/scss/flexbox.scss";
+@import "rs/scss/index.scss";
+@import "rs/scss/global.scss";
+@import "rs/scss/flexbox.scss";
 </style>

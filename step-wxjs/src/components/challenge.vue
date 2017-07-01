@@ -25,13 +25,13 @@
         <!-- <checker-item v-for="i in [1, 2, 3]" :key="i" :value="i">￥{{i*300}}</checker-item> -->
         <div class="img">
           <checker-item>
-            <img src="../../static/img/1.png" alt="">
+            <img src="/rs/img/1.png" alt="">
           </checker-item>
           <checker-item>
-            <img src="../../static/img/2.png" alt="">
+            <img src="/rs/img/2.png" alt="">
           </checker-item>
           <checker-item>
-            <img src="../../static/img/3.png" alt="">
+            <img src="/rs/img/3.png" alt="">
           </checker-item>
         </div>
       </checker>
@@ -57,7 +57,7 @@ export default {
   },
   data () {
     return {
-      face: '../../static/img/face.png',
+      face: '/rs/img/face.png',
       popupVisible: false,
       // title: '和亲友们来比拼',
       title: '',
@@ -117,14 +117,14 @@ export default {
       })
     },
     // 获取挑战列表页数据
-    fetchData () {
-      this.$http.get('/static/js/category.json').then((e) => {
-        console.info(this.$store.state.vux.isLoading)
-        this.$store.state.vux.isLoading = false
-      }, (e) => {
-        console.info(e)
-      })
-    },
+    // fetchData () {
+    //   this.$http.get('/static/js/category.json').then((e) => {
+    //     console.info(this.$store.state.vux.isLoading)
+    //     this.$store.state.vux.isLoading = false
+    //   }, (e) => {
+    //     console.info(e)
+    //   })
+    // },
     postData () {
       this.loadingButton = false
     }
@@ -132,13 +132,13 @@ export default {
   created () {
     console.info('challenge.vue')
     document.body.scrollTop = 0
-
-    this.fetchData()
+    this.$store.state.vux.isLoading = false
+    // this.fetchData()
   }
 }
 </script>
 
 <style lang="scss" scoped>
 /* challenge.vue */
-@import "static/scss/challenge.scss"
+@import "rs/scss/challenge.scss"
 </style>
