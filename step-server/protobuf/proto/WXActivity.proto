@@ -1,0 +1,128 @@
+syntax = "proto3";
+package com.hr.pb;
+option java_package = "com.hr.pb";
+option java_outer_classname = "WXActivity";
+import "WX.proto";
+
+//活动列表类型
+enum PBWxActivityType
+{
+ActivityTypeAll=0;//所有
+ActivityTypeWeight=1;//减肥
+}
+
+//活动发布类型
+enum PBWxActivityPublishType
+{
+ActivityPublishTypeOfficial=0;//官方
+ActivityPublishTypeUser=1;//用户
+}
+
+//挑战列表也页
+message PBWxActivityPage {
+	string title=1;
+	string currentUserCountText=2;
+	string introduceImage=3;//介绍
+	repeated PBWxActivityGroup activityGroups=4;
+    PBWxActivity publishActivity=5;
+}
+
+//挑战列表也页内的一组挑战
+message PBWxActivityGroup {
+	string title=1;
+	repeated PBWxActivity activity=2;
+}
+//一组挑战的一项挑战
+message PBWxActivity {
+	string title=1;
+	string descOne=2;
+	string descTwo=3;
+	string image=5;
+	string link=6;
+}
+
+//分享文本
+message PBWxShare{
+string text=1;
+string icon=2;
+}
+
+//挑战详情页
+message PBWxActivityDetailPage {
+PBWxActivityPublishType publishType=1;//发布类型
+int32 activityId=2;
+	string title=3;
+	string currentUserCountText=4;
+	string introduceImage=5;//挑战介绍
+    PBWxTask task=6;
+    string rule=7;//规则
+    string logo=8;
+    float expend=9;//花费
+    PBWxShare share=10;
+    repeated PBWxUser currentUser=11;
+}
+
+//挑战发布页
+message PBWxActivityPublishPage {
+	int32 activityPublishId=1;
+	string title=2;
+	string introduceImage=3;//挑战介绍
+    PBWxTask task=4;
+    string logo=5;
+    float expend=6;//花费
+    string startStopTime=7;//起止时间
+    PBWxShare share=8;
+}
+
+//挑战提交
+message PBWxActivityPublishSubmit {
+	int32 activityPublishId=1;
+	string paykey=2;
+}
+
+
+
+//挑战发布页Logo修改
+message PBWxActivityPublishLogoModify {
+int32 activityPublishId=1;
+string logo=2;
+}
+
+//挑战发布页标题修改
+message PBWxActivityPublishTitleModify {
+int32 activityPublishId=1;
+string title=2;
+}
+
+//挑战发布页分享文本修改
+message PBWxActivityPublishShareModify {
+int32 activityPublishId=1;
+string shareText=2;
+}
+
+//挑战发布页介绍修改
+message PBWxActivityPublishIntroduceModify {
+int32 activityPublishId=1;
+string introduceImage=2;
+}
+
+//挑战发布页费用修改
+message PBWxActivityPublishExpendModify {
+int32 activityPublishId=1;
+float expend=2;
+}
+
+//挑战发布页起止日期修改
+message PBWxActivityPublishStartStopTimeModify {
+int32 activityPublishId=1;
+uint32 startTime=2;
+int32 days=3;
+uint32 endTime=4;
+}
+
+//挑战发布页任务修改
+message PBWxActivityPublishTaskModify {
+int32 activityPublishId=1;
+repeated PBWxTask tasks=2;//提交时为空
+PBWxTask selected=3;
+}

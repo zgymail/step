@@ -1,0 +1,129 @@
+syntax = "proto3";
+package com.hr.pb;
+option java_package = "com.hr.pb";
+option java_outer_classname = "WX";
+
+//用户信息
+message PBWxUser{
+int32 userId=1;
+string nickName=2;
+string headIcon=3;
+}
+//任务项
+message PBWxTaskItem {
+PBWxExecuteType executeType=1;//执行类型
+string name=2;
+string desc=3;//下方的描述文字
+bool complete=4;//是否完成
+}
+
+//任务的星级
+message PBWxTaskStar {
+int32 current=1;
+int32 max=2;
+}
+
+//任务
+message PBWxTask {
+	string title=1;
+	repeated PBWxTaskItem taskItems=2;
+	PBWxTaskStar star=3;
+}
+
+//一项执行数据
+message PBWxExecute{
+PBWxExecuteType executeType=1;
+	oneof executeItem{
+		PBWxExecuteEarly early=2;
+		PBWxExecuteStep step=3;
+		PBWxExecuteDiet diet=4;
+		PBWxExecuteWeight weight=5;	
+	}
+}
+
+//执行类型
+enum PBWxExecuteType
+{
+ExecuteTypeEarly=0;//早起
+ExecuteTypeStep=1;//步数
+ExecuteTypeDietBreakfast=2;//早餐
+ExecuteTypeDietLunch=3;//午餐
+ExecuteTypeDietSupper=4;//晚餐
+ExecuteTypeWeight=5;//体重
+}
+
+//评价
+enum PBWxEvaluate
+{
+EvaluateGood=0;//好评
+EvaluateGeneral=1;//一般
+EvaluateBad=2;//差评
+}
+
+//早起
+message PBWxExecuteEarly{
+string timeText=1;
+string indicatorWithUpTimeText=2;//主要指标-起床时间
+string indicatorWithPersistText=3;//主要指标-坚持多久
+}
+
+//计步
+message PBWxExecuteStep{
+string timeText=1;
+string indicatorWithStepText=2;//主要指标-步数
+string indicatorWithPersistText=3;//主要指标-坚持多久
+}
+
+//饮食
+message PBWxExecuteDiet{
+string timeText=1;
+string indicatorWithEvaluateText=2;//主要指标-评价
+string dietImage=3;
+string evaluateText=4;//评价文本
+}
+
+//体重
+message PBWxExecuteWeight{
+string timeText=1;
+string indicatorWithWeightText=2;//主要指标-体重
+string indicatorWithLostWeightText=3;//主要指标-减重
+}
+
+message PBWxLogin{
+string code=1;//code
+}
+
+
+message PBWxTicket{
+string ticket=1;
+int32 expiresin=2;
+}
+
+message PBWxAccessToken{
+string accessToken=1;
+int32 expiresin=2;
+}
+
+message PBWxUserAccessToken{
+string accessToken=1;
+string refreshToken=2;
+uint64 expiresIntime=3;//过期日期time
+string identity=4;
+}
+
+message PBWxMenu{
+repeated PBWxMenuItem button=1;
+}
+
+message PBWxMenuItem{
+string type=1;
+string name=2;
+string key=3;
+string url=4;
+repeated PBWxMenuItem sub_button=5;
+}
+
+
+
+
+

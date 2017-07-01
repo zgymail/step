@@ -1,0 +1,50 @@
+{
+  "groups": [{
+    "name": "step",
+    "type": "hr.configurer.StepConfigurer",
+    "sourceType": "hr.configurer.StepConfigurer"
+  }],
+  "properties": [
+    {
+      "name": "step.oss-access-key-id",
+      "type": "java.lang.String",
+      "sourceType": "hr.configurer.StepConfigurer"
+    },
+    {
+      "name": "step.oss-access-key-secret",
+      "type": "java.lang.String",
+      "sourceType": "hr.configurer.StepConfigurer"
+    },
+    {
+      "name": "step.oss-bucket",
+      "type": "java.lang.String",
+      "sourceType": "hr.configurer.StepConfigurer"
+    },
+    {
+      "name": "step.oss-region",
+      "type": "java.lang.String",
+      "sourceType": "hr.configurer.StepConfigurer"
+    },
+    {
+      "name": "step.oss-role-arn",
+      "type": "java.lang.String",
+      "sourceType": "hr.configurer.StepConfigurer"
+    },
+    {
+      "name": "step.website",
+      "type": "java.lang.String",
+      "sourceType": "hr.configurer.StepConfigurer"
+    },
+    {
+      "name": "step.wxs-app-id",
+      "type": "java.lang.String",
+      "sourceType": "hr.configurer.StepConfigurer"
+    },
+    {
+      "name": "step.wxs-app-secret",
+      "type": "java.lang.String",
+      "sourceType": "hr.configurer.StepConfigurer"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,32 @@
+启翔内部短信接口文档
+
+协议：http
+
+调用url：qxsms.qixiangnet.com/api/public/sms
+
+请求方式 post
+
+入参：
+   
+templateId  模板ID
+mobile      手机号
+jsonVar     内容json变量 示例 ["123456","666666"] 
+appkey      应用申请后提供
+timestamp   时间戳
+sign        签名
+
+签名生成规则:
+
+1.所有入参（剔除appkey 和 时间戳）
+2.对所有入参进行升序排序（按入参名） 并拼接成字符串（key=value）形式 以 & 作为分隔符 例： aa=11&bb=22
+3.拼接上 appid=APPID(APPID在应用申请后提供)
+4.拼接上之前的时间戳参数 timestamp=xxx
+5.对字符串进行md5加密 生成签名
+
+例：md5(appkey=xxx&jsonVar=["666666"]&mobile=130000000&templateId=111111&appid=xxxx&timestamp=xxxx)
+
+
+返回
+类型:json 
+出参：code=1 成功 其他失败
+

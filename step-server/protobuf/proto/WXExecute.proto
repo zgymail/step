@@ -1,0 +1,77 @@
+syntax = "proto3";
+package com.hr.pb;
+option java_package = "com.hr.pb";
+option java_outer_classname = "WXExecute";
+import "WX.proto";
+//打卡功能
+
+
+
+//准备早起打卡
+message PBWxExecuteEarlyPrepare{
+string currentUserCountText=1;//当前有多少人在执行
+string timeRangeText=2;
+int32 todayTaskCount=3;//今日还有几项任务没有完成
+PBWxUser user=4;
+string indicatorWithPersistText=5;//连续多少天了
+bool timeRangeEnabled=6;//现在是否在时间范围内可以打卡
+bool todayExecuted=7;//今日是否执行过
+}
+
+//早起打卡
+message PBWxExecuteEarlySubmit{
+uint32 time=1;//打卡时间
+}
+
+
+
+//准备步数打卡
+message PBWxExecuteStepPrepare{
+string currentUserCountText=1;//当前有多少人在执行
+int32 todayTaskCount=2;//今日还有几项任务没有完成
+PBWxUser user=3;
+int32 targetStepCount=4;//目标步数
+string indicatorWithPersistText=5;//连续多少天了
+bool todayExecuted=6;//今日是否执行过
+}
+//步数打卡
+message PBWxExecuteStepSubmit{
+uint32 time=1;//打卡时间
+uint32 stepCount=2;//步数
+}
+
+
+
+//准备饮食打卡
+message PBWxExecuteDietPrepare{
+string currentUserCountText=1;//当前有多少人在执行
+int32 todayTaskCount=2;//今日还有几项任务没有完成
+PBWxUser user=3;
+repeated string referenceLabel=4;//参考标签
+repeated PBWxExecuteType executedType=5;//已经执行过的 早餐、午餐、晚餐类型
+map<string,string> defaultEvaluateText = 6;//默认的评价文本
+}
+//饮食打卡
+message PBWxExecuteDietSubmit{
+uint32 time=1;//打卡时间
+PBWxExecuteType executeType=2;
+string dietImage=3;
+PBWxEvaluate evaluate=4;
+string evaluateText=5;
+}
+
+
+
+//准备体重打卡
+message PBWxExecuteWeightPrepare{
+string currentUserCountText=1;//当前有多少人在执行
+int32 todayTaskCount=2;//今日还有几项任务没有完成
+PBWxUser user=3;
+bool todayExecuted=4;//今日是否执行过
+}
+
+//体重打卡
+message PBWxExecuteWeightSubmit{
+uint32 time=1;//打卡时间
+uint32 weight=2;//体重
+}

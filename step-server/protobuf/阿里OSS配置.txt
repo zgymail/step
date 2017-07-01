@@ -1,0 +1,16 @@
+Bucket: were-kill-bucket
+Endpoint: oss-cn-hangzhou.aliyuncs.com
+
+AccessKeyID：
+LTAIlPJob053PAef
+
+
+AccessKeySecret：
+WjfGOQdgpweeYzwx0ZGb3lFbwB1tyE
+
+
+RoleArn: acs:ram::1394040136638389:role/aliyunosstokengeneratorrole
+OSS
+
+通过服务端获取token地址
+web/aliyunToken.do

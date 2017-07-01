@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <mkdir dir="src/main/java"/>
+  <path id="proto.path">
+    <fileset dir="protobuf/proto">
+      <include name="**/*.proto"/>
+    </fileset>
+  </path>
+  <pathconvert property="proto.files" pathsep=" " refid="proto.path"/>
+  <exec executable="/Users/gavin/workspace/project/step-server/protobuf/protoc3.1/bin/protoc">
+    <arg value="--java_out=src/main/java"/>
+    <arg value="-I/Users/gavin/workspace/project/step-server/protobuf/proto"/>
+    <arg line="${proto.files}"/>
+  </exec>
+</target>
+</project>

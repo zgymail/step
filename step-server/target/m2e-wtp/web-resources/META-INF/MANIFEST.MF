@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: step-server
+Implementation-Version: 1.0
+Built-By: gavin
+Implementation-Vendor-Id: hr
+Build-Jdk: 1.8.0_112
+Implementation-URL: http://projects.spring.io/spring-boot/step-server/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
