@@ -33,7 +33,6 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping(value="/open/user",consumes={MediaTypeExt.APPLICATION_PROTOBUF_VALUE,MediaTypeExt.APPLICATION_JSON_UTF8_VALUE},produces={MediaTypeExt.APPLICATION_PROTOBUF_VALUE,MediaTypeExt.APPLICATION_JSON_UTF8_VALUE})
 
 public class OpenUserController {
-
 	 private static final Logger logger = LoggerFactory.getLogger(OpenUserController.class.getName());
 
     @Autowired
