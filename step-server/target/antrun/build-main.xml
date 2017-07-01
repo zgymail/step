@@ -8,9 +8,9 @@
     </fileset>
   </path>
   <pathconvert property="proto.files" pathsep=" " refid="proto.path"/>
-  <exec executable="/Users/gavin/workspace/project/step-server/protobuf/protoc3.1/bin/protoc">
+  <exec executable="/Users/gavin/workspace/project/step/step-server/protobuf/protoc3.1/bin/protoc">
     <arg value="--java_out=src/main/java"/>
-    <arg value="-I/Users/gavin/workspace/project/step-server/protobuf/proto"/>
+    <arg value="-I/Users/gavin/workspace/project/step/step-server/protobuf/proto"/>
     <arg line="${proto.files}"/>
   </exec>
 </target>
