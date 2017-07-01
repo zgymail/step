@@ -41,6 +41,7 @@ const mutations = {
     })
   },
   updateLoginOperate (state) {
+    console.info('obj2')
     state.loginOperate += 1
   }
 }

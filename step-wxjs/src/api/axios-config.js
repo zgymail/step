@@ -19,7 +19,8 @@ axios.interceptors.request.use(function (config) {
 })
 
 axios.interceptors.response.use(function (response) {
-  if (response.status === '201') {
+  if (response.status === 201) {
+    console.info('obj1')
     store.dispatch('authorize/login')
     return Promise.reject(response)
   }

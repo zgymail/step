@@ -43,7 +43,7 @@
       <p></p>
 
       <div class="private__wrap">
-        <img class="private__img" src="/rs/img/health.jpg" alt="">
+        <img class="private__img" src="/step/rs/img/health.jpg" alt="">
         <div class="private__content flex center">
           <div>
             <p class="public__title">自律派早起挑战</p>
@@ -54,7 +54,7 @@
       </div>
 
       <div class="private__wrap">
-        <img class="private__img" src="/rs/img/health.jpg" alt="">
+        <img class="private__img" src="/step/rs/img/health.jpg" alt="">
         <div class="private__content flex center">
           <div>
             <p class="public__title">动起来更健康</p>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="private__wrap">
-        <img class="private__img" src="/rs/img/health.jpg" alt="">
+        <img class="private__img" src="/step/rs/img/health.jpg" alt="">
         <div class="private__content flex center">
           <div>
             <p class="public__title">轻松减挑战</p>
@@ -94,7 +94,7 @@ export default {
   data () {
     return {
       number: 1000,
-      theme: '/rs/img/health.jpg'
+      theme: '/step/rs/img/health.jpg'
     }
   },
   created () {
@@ -118,7 +118,7 @@ export default {
       // })
     },
     loadData: function () {
-      console.info('this', this.$axios)
+      // console.info('this', this.$axios)
       this.$axios.get('wx/activity/index')
     }
   }
