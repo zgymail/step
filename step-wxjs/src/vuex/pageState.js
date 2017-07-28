@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const state = {
   isLoading: false,
-  direction: 'forward'
+  direction: 'forward',
+  top: 0
 }
 export default {
   namespaced: true,
@@ -22,6 +23,9 @@ export default {
     },
     updateDirection (state, payload) {
       state.direction = payload.direction
+    },
+    UPDATE_TOP (state, status) {
+      state.top = status
     }
   }
 }

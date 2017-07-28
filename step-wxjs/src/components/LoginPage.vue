@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div>
+    <!-- <div>
       {{msg}}
     </div>
     <div>
       <button v-on:click='authorize'>重试</button>
-    </div>
+    </div> -->
   </div>
 </template>
 

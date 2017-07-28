@@ -35,13 +35,13 @@ const actions = {
 const mutations = {
   updateUserAccessToken (state, userAccessToken) {
     state.userAccessToken = userAccessToken
+    console.info('userAccessToken', userAccessToken)
     cookie.setCookie('userAccessToken', userAccessToken)
     return new Promise((resolve, reject) => {
       resolve(userAccessToken)
     })
   },
   updateLoginOperate (state) {
-    console.info('obj2')
     state.loginOperate += 1
   }
 }

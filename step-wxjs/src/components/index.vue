@@ -43,7 +43,7 @@
       <p></p>
 
       <div class="private__wrap">
-        <img class="private__img" src="/step/rs/img/health.jpg" alt="">
+        <img class="private__img" src="rs/img/health.jpg" alt="">
         <div class="private__content flex center">
           <div>
             <p class="public__title">自律派早起挑战</p>
@@ -54,7 +54,7 @@
       </div>
 
       <div class="private__wrap">
-        <img class="private__img" src="/step/rs/img/health.jpg" alt="">
+        <img class="private__img" src="rs/img/health.jpg" alt="">
         <div class="private__content flex center">
           <div>
             <p class="public__title">动起来更健康</p>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="private__wrap">
-        <img class="private__img" src="/step/rs/img/health.jpg" alt="">
+        <img class="private__img" src="rs/img/health.jpg" alt="">
         <div class="private__content flex center">
           <div>
             <p class="public__title">轻松减挑战</p>
@@ -78,7 +78,7 @@
     </div>
 
     <div class="button">
-      <x-button type="primary" link="/demo">发起挑战 和亲友们来比拼</x-button>
+      <x-button type="primary" link="/challenge">发起挑战 和亲友们来比拼</x-button>
     </div>
   </div>
 
@@ -94,18 +94,19 @@ export default {
   data () {
     return {
       number: 1000,
-      theme: '/step/rs/img/health.jpg'
+      theme: 'rs/img/health.jpg'
     }
   },
   created () {
-    setTimeout(() => {
-      document.body.scrollTop = 0
-    }, 200)
-
     this.$store.state.pageState.isLoading = false
 
     this.loadData()
     // this.fetchData()
+  },
+  mounted () {
+    setTimeout(() => {
+      document.body.scrollTop = 0
+    }, 100)
   },
   methods: {
     // 获取挑战列表页数据
@@ -118,8 +119,30 @@ export default {
       // })
     },
     loadData: function () {
-      // console.info('this', this.$axios)
       this.$axios.get('wx/activity/index')
+
+      this.$axios.get('wx/jsapi_ticket?url=' + encodeURIComponent(window.location.href.split('#')[0])).then(e => {
+        // console.info('e', e)
+        e.data.jsApiList = ['onMenuShareTimeline', 'onMenuShareAppMessage']
+        this.$wechat.config(e.data)
+        // console.info(this.$wechat)
+        this.$wechat.ready(() => {
+          // console.log('wechat ready')
+          // 分享给朋友
+          this.$wechat.onMenuShareAppMessage({
+            title: '脚印-好友',
+            desc: '给朋友分享健康',
+            link: 'https://app.happyrun.cn/step/#/',
+            imgUrl: 'https://static.vux.li/logo_520.png'
+          })
+          // 分享到朋友圈
+          this.$wechat.onMenuShareTimeline({
+            title: '脚印-朋友圈',
+            link: 'https://www.mi.com/',
+            imgUrl: 'https://static.vux.li/logo_520.png'
+          })
+        })
+      })
     }
   }
 }

@@ -3,7 +3,7 @@
     <vue-core-image-upload
       class="btn btn-primary"
       :crop="true"
-      cropRatio="16:9"
+      cropRatio="1:1"
       @imageuploaded="imageuploaded"
       :data="data"
       :max-file-size="5242880"
@@ -33,7 +33,7 @@ export default {
     }
   },
   created () {
-    this.$store.state.vux.isLoading = false
+    this.$store.state.pageState.isLoading = false
   }
 }
 </script>
